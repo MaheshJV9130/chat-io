@@ -16,7 +16,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.current = io('http://localhost:8080');
+    socket.current = io("https://chat-io-8s7x.onrender.com");
 
     socket.current.emit("newUser", username);
 
