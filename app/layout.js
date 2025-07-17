@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${baloo.variable} antialiased`}
       >
+        <Analytics/>
         {children}
       </body>
     </html>
