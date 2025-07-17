@@ -24,6 +24,8 @@ export default function Home() {
 
     socket.current.on("joined", (data) => {
       setMessages((prev) => [...prev, { user: "system", msg: data }]);
+      const notify = new Audio('/notification.mp3')
+      notify.play()
     });
 
     socket.current.on("recieveMsg", (data) => {
