@@ -3,8 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
 import SystemsMsg from "@/component/SystemsMsg";
 import OwnMsg from "@/component/OwnMsg";
-import FrindsMsg from "@/component/FrindsMsg";
-
+import FriendsMsg from "@/component/FriendsMsg";
 export default function Home() {
   const [username, setUsername] = useState("");
   const [messages, setMessages] = useState([]);
@@ -13,7 +12,6 @@ export default function Home() {
   const [users, setUsers] = useState([]);
   const [showUsers, setShowUsers] = useState(false); // 👈 NEW STATE
   const socket = useRef(null);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     socket.current = io("https://chat-io-8s7x.onrender.com");
@@ -30,6 +28,7 @@ export default function Home() {
 
     socket.current.on("recieveMsg", (data) => {
       setMessages((prev) => [...prev, data]);
+      
     });
 
     setIsJoined(true);
@@ -39,6 +38,9 @@ export default function Home() {
     e.preventDefault();
     if (msg.trim() === "") return;
     socket.current.emit("sendMsg", { user: username, msg: msg });
+  const sendAudio = new Audio('/send.mp3')
+ sendAudio.volume = 0.5;
+    sendAudio.play()
     setMsg("");
   };
 
@@ -95,7 +97,7 @@ export default function Home() {
                   i.user === "system" ? (
                     <SystemsMsg key={idx} msg={i.msg} />
                   ) : i.user !== username ? (
-                    <FrindsMsg key={idx} msg={i.msg} username={i.user} />
+                    <FriendsMsg key={idx} msg={i.msg} username={i.user} />
                   ) : (
                     <OwnMsg key={idx} msg={i.msg} username={"You"} />
                   )
