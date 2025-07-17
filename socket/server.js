@@ -7,7 +7,7 @@ const app = express();
 const server = createServer(app);
 
 const corsOptions = {
-  origin: process.env.NEXT_PUBLIC_URL,
+  origin: "*",
   credentials: true,
   methods: ["GET", "POST"],
 };
@@ -48,5 +48,5 @@ app.get("/", (req, res) => {
 });
 
 server.listen(8080, () => {
-  console.log(`server started on ${process.env.BACKEND_URL}`);
+  console.log("Socket Server Running on http://localhost:8080");
 });
