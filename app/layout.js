@@ -10,7 +10,7 @@ const baloo = Baloo_2({
 
 
 export const metadata = {
-  title: "thechat.in - Just chat , Nothing speacial",
+  title: "thechat.in - Just chat",
   description: "Just chat , Nothing speacial",
 };
 

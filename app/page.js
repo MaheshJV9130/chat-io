@@ -126,6 +126,7 @@ export default function Home() {
         <div className="w-screen h-screen flex justify-center items-center flex-col gap-8 bg-gradient-to-br from-sky-100 to-blue-200">
           <h1 className="font-extrabold text-4xl text-blue-600 drop-shadow-sm">
             Welcome to <span className="text-blue-800">thechat.in</span>
+            <p className="text-xl text-center">Just Chat , Nothing Special</p>
           </h1>
 
           <form
