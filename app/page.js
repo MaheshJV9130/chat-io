@@ -16,7 +16,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.current = io("http://localhost:8080");
+    socket.current = io(process.env.BACKEND_URL);
 
     socket.current.emit("newUser", username);
 
