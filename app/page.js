@@ -74,7 +74,7 @@ export default function Home() {
           )}
 
           {/* Chat section */}
-          <section className="bg-gray-100 h-screen flex flex-col w-screen">
+          <section className="bg-gray-100 h-[90vh] md:h-screen flex flex-col w-screen">
             {/* Header */}
             <div className="bg-blue-500 p-4 text-white text-center flex justify-between px-8">
               <button
@@ -104,18 +104,21 @@ export default function Home() {
             </div>
 
             {/* Input box */}
-            <div className="bg-white p-4 flex items-center gap-2">
+           
+              <form className="bg-white p-4 flex items-center gap-2" onSubmit={sendMessage}>
               <input
                 type="text"
                 placeholder="Type your message..."
                 className="flex-1 border rounded-full px-4 py-2 focus:outline-none"
                 onChange={(e) => setMsg(e.target.value)}
                 value={msg}
+                
               />
-              <button onClick={sendMessage} className="cursor-pointer">
+              <button type="submit" className="cursor-pointer">
                 <img src="/paper-plane.png" alt="send" width={20} />
               </button>
-            </div>
+              </form>
+            
           </section>
         </main>
       ) : (
